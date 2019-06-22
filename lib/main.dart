@@ -3,6 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
+import './state/TapboxA.dart';
+import './state/TapboxB.dart';
+import './state/TapboxC.dart';
+
+
 void collectLog(String line) {
   print(line);
 }
@@ -55,7 +60,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "new_page": (context) => EchoRoute(),
-        "counter_new_page": (context) => NewRoute(),
+        "tapboxb_new_page": (context) => TapboxBNewRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -143,12 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             FlatButton(
-              child: Text('counter new route'),
+              child: Text('TapboxB new route'),
               textColor: Colors.black,
               onPressed: () {
-                Navigator.pushNamed(context, 'counter_new_page');
+                Navigator.pushNamed(context, 'tapboxb_new_page');
               },
             ),
+            TapboxA(),
+            ParentWidgetC(),
             RandomWordsWidget(),
           ],
         ),
@@ -193,11 +200,18 @@ class RandomWordsWidget extends StatelessWidget {
 }
 
 // 测试状态的路由
-class NewRoute extends StatelessWidget {
+class TapboxBNewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return CounterWidget();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tapbox B'),
+      ),
+      body: Center(
+        child: ParentWidget(),
+      ),
+    );
   }
 }
 
