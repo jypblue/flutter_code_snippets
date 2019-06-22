@@ -1,11 +1,18 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+// 引入第三方包
 import 'package:english_words/english_words.dart';
 
+// 状态练习
 import './state/TapboxA.dart';
 import './state/TapboxB.dart';
 import './state/TapboxC.dart';
+
+// 基础组件展示
+import './widget/basic/text.dart';
+
 
 
 void collectLog(String line) {
@@ -61,6 +68,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "new_page": (context) => EchoRoute(),
         "tapboxb_new_page": (context) => TapboxBNewRoute(),
+        "basic_widget_page": (context) => BasicWidgetRoute()
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -134,11 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              'You have pushed the button this many times:$_counter',
             ),
             FlatButton(
               child: Text("open new route"),
@@ -154,9 +158,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'tapboxb_new_page');
               },
             ),
+            FlatButton(
+              child: Text('basic widget page'),
+              textColor: Colors.blue,
+              onPressed: () {
+                Navigator.pushNamed(context, 'basic_widget_page');
+              },
+            ),
             TapboxA(),
             ParentWidgetC(),
-            RandomWordsWidget(),
           ],
         ),
       ),
