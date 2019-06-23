@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
-
-// 路由组件
-class BasicWidgetRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Basic Widget")
-      ),
-      body: Column(
-          children: <Widget>[
-            TextWidget(),
-          ]
-        )
-    );
-  }
-}
 
 class TextWidget extends StatelessWidget {
   const TextWidget({Key key}) : super(key: key);
@@ -25,17 +8,47 @@ class TextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: <Widget>[
-          Text("Hello word", textAlign: TextAlign.center,),
-          Text("Hello world! I'm Jack. "*6,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          Text("Hello world", textScaleFactor: 1.5),
-          Text("Hello world"*6, textAlign: TextAlign.center,),
+      child: DefaultTextStyle(
+        style: TextStyle(
+          color: Colors.red,
+          fontSize: 20.0
+        ),
+        textAlign: TextAlign.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Hello word", style: TextStyle(
+              color: Colors.blue,
+              fontSize: 18.0,
+              height: 1.2,
+              fontFamily: "Courier",
+              background: new Paint()..color = Colors.yellow,
+              decoration: TextDecoration.underline,
+              decorationStyle: TextDecorationStyle.dashed,
+              inherit: false
+            ),),
+            Text("Hello world! I'm Jack. "*6,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text("Hello world 1.5", style: TextStyle(inherit: false, color: Colors.black), textScaleFactor: 1.5,),
+            Text("Hello world"*6, textAlign: TextAlign.center,),
+            Text.rich(TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Home: '
+                ),
+                TextSpan(
+                  text: 'https://flutterchina.club',
+                  style: TextStyle(
+                    color: Colors.blue
+                  ),
+                )
+              ]
+            )),
 
-        ],
+          ],
+        ),
       ),
     );
   }

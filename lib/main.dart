@@ -11,7 +11,7 @@ import './state/TapboxB.dart';
 import './state/TapboxC.dart';
 
 // 基础组件展示
-import './widget/basic/text.dart';
+import './widget/basic/index.dart';
 
 
 
