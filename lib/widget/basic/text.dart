@@ -10,13 +10,11 @@ class BasicWidgetRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text("Basic Widget")
       ),
-      body: Center(
-        child: Column(
+      body: Column(
           children: <Widget>[
             TextWidget(),
           ]
         )
-      ),
     );
   }
 }
@@ -34,6 +32,9 @@ class TextWidget extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
+          Text("Hello world", textScaleFactor: 1.5),
+          Text("Hello world"*6, textAlign: TextAlign.center,),
+
         ],
       ),
     );
