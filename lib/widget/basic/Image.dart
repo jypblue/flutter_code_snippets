@@ -37,7 +37,8 @@ class ImageWidget extends StatelessWidget {
             //   fontSize: 24.0,
             //   color: Colors.green
             // )),
-            Icon(MyIcons.book, color: Colors.purple)
+            Icon(MyIcons.wechat, color: Colors.green),
+            Icon(MyIcons.alipay, color: Colors.blue)
           ],
         ),
       ),
