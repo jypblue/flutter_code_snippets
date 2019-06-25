@@ -27,25 +27,7 @@ FlutterErrorDetails makeDetails(Object obj, StackTrace stack) {
   return obj;
 }
 
-void main() {
-
-  FlutterError.onError = (FlutterErrorDetails details) {
-    reportErrorAndLog(details);
-  };
-
-  runZoned(
-    () => runApp(MyApp()),
-    zoneSpecification: ZoneSpecification(
-      print: (Zone self, ZoneDelegate parent, Zone zone, String line) {
-        collectLog(line); // 收集日志
-      }
-    ),
-    onError: (Object obj, StackTrace stack) {
-      var details = makeDetails(obj, stack);
-      reportErrorAndLog(details);
-    }
-  );
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -121,10 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: ListView(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        shrinkWrap: true,
+        padding: const EdgeInsets.all(20.0),
+        children: <Widget>[
+          Column(
           // Column is also layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -139,25 +124,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'You have pushed the button this many times:$_counter',
             ),
             FlatButton(
-              child: Text("open new route"),
+              child: Text("open new route", textAlign: TextAlign.start,),
               textColor: Colors.blue,
               onPressed: () {
                 Navigator.of(context).pushNamed("new_page", arguments: "hi");
               },
             ),
-            FlatButton(
-              child: Text('TapboxB new route'),
-              textColor: Colors.black,
-              onPressed: () {
-                Navigator.pushNamed(context, 'tapboxb_new_page');
-              },
-            ),
+            // FlatButton(
+            //   child: Text('TapboxB new route'),
+            //   textColor: Colors.black,
+            //   onPressed: () {
+            //     Navigator.pushNamed(context, 'tapboxb_new_page');
+            //   },
+            // ),
             FlatButton(
               child: Text('basic widget page'),
               textColor: Colors.blue,
@@ -166,9 +151,11 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             TapboxA(),
+            ParentWidget(),
             ParentWidgetC(),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
