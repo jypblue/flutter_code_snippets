@@ -12,6 +12,14 @@ import './state/TapboxC.dart';
 
 // 基础组件展示
 import './widget/basic/index.dart';
+// 布局组件
+import './widget/layout/index.dart';
+// 容器组件
+import './widget/container/index.dart';
+// 滚动组件
+import './widget/scroll/index.dart';
+// 功能组件
+import './widget/function/index.dart';
 
 
 
@@ -50,7 +58,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "new_page": (context) => EchoRoute(),
         "tapboxb_new_page": (context) => TapboxBNewRoute(),
-        "basic_widget_page": (context) => BasicWidgetRoute()
+        "basic_widget_page": (context) => BasicWidgetRoute(),
+        "layout_widget_page": (context) => LayoutWidgetRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -148,6 +157,13 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.blue,
               onPressed: () {
                 Navigator.pushNamed(context, 'basic_widget_page');
+              },
+            ),
+            FlatButton(
+              child: Text('layout widget page'),
+              textColor: Colors.blue,
+              onPressed: () {
+                Navigator.pushNamed(context, 'layout_widget_page');
               },
             ),
             TapboxA(),
