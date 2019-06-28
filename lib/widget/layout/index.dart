@@ -3,6 +3,9 @@ import 'package:flutter/painting.dart';
 
 import './Row.dart';
 import './Column.dart';
+import './Flex.dart';
+import './Wrap.dart';
+import './Stack.dart';
 
 
 
@@ -17,11 +20,13 @@ class LayoutWidgetRoute extends StatelessWidget {
         title: Text("Layout Widget")
       ),
       body: ListView(
-          shrinkWrap: true,
+         shrinkWrap: true,
           padding: const EdgeInsets.all(20.0),
           children: <Widget>[
             RowWidget(),
             ColumnWidget(),
+            FlexWidget(),
+            WrapWidget(),
           ]
         )
     );
