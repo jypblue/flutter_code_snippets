@@ -60,6 +60,9 @@ class MyApp extends StatelessWidget {
         "tapboxb_new_page": (context) => TapboxBNewRoute(),
         "basic_widget_page": (context) => BasicWidgetRoute(),
         "layout_widget_page": (context) => LayoutWidgetRoute(),
+        "container_widget_page": (context) => ContainerWidgetRoute(),
+        "scroll_widget_page": (context) => ScrollWidgetRoute(),
+        "function_widget_page": (context) => FunctionWidgetRoute()
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -119,56 +122,53 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20.0),
         children: <Widget>[
           Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:$_counter',
-            ),
-            FlatButton(
-              child: Text("open new route", textAlign: TextAlign.start,),
-              textColor: Colors.blue,
-              onPressed: () {
-                Navigator.of(context).pushNamed("new_page", arguments: "hi");
-              },
-            ),
-            // FlatButton(
-            //   child: Text('TapboxB new route'),
-            //   textColor: Colors.black,
-            //   onPressed: () {
-            //     Navigator.pushNamed(context, 'tapboxb_new_page');
-            //   },
-            // ),
-            FlatButton(
-              child: Text('basic widget page'),
-              textColor: Colors.blue,
-              onPressed: () {
-                Navigator.pushNamed(context, 'basic_widget_page');
-              },
-            ),
-            FlatButton(
-              child: Text('layout widget page'),
-              textColor: Colors.blue,
-              onPressed: () {
-                Navigator.pushNamed(context, 'layout_widget_page');
-              },
-            ),
-            TapboxA(),
-            ParentWidget(),
-            ParentWidgetC(),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'You have pushed the button this many times:$_counter',
+              ),
+              FlatButton(
+                child: Text("open new route", textAlign: TextAlign.start,),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.of(context).pushNamed("new_page", arguments: "hi");
+                },
+              ),
+              FlatButton(
+                child: Text('basic widget page'),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'basic_widget_page');
+                },
+              ),
+              FlatButton(
+                child: Text('layout widget page'),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'layout_widget_page');
+                },
+              ),
+              FlatButton(
+                child: Text('container widget page'),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'container_widget_page');
+                },
+              ),
+              FlatButton(
+                child: Text('scroll widget page'),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'scroll_widget_page');
+                },
+              ),
+              FlatButton(
+                child: Text('function widget page'),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'function_widget_page');
+                },
+              ),
             ],
           ),
         ],

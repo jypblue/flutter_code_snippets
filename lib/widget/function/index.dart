@@ -10,7 +10,7 @@ class FunctionWidgetRoute extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Layout Widget")
+        title: Text("Function Widget")
       ),
       body: ListView(
           shrinkWrap: true,

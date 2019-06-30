@@ -10,7 +10,7 @@ class ScrollWidgetRoute extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Layout Widget")
+        title: Text("Scroll Widget")
       ),
       body: ListView(
           shrinkWrap: true,
